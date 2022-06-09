@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="FWD Tests" configfailurepolicy="continue">
+    <test parallel="classes" thread-count="1" name="FWD Tests">
+        <classes>
+          <!--  <class name=""/> -->
+        </classes>
+    </test>
+</suite>
