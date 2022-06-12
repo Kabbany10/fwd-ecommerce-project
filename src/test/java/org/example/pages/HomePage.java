@@ -30,6 +30,18 @@ public class HomePage {
     WebElement itemEuroPrice3;
     @FindBy(xpath = "/html/body/div[6]/div[3]/div/div/div/div/div[4]/div[2]/div[4]/div/div[2]/div[3]/div[1]/span")
     WebElement itemEuroPrice4;
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div/div/div/div[1]/div[2]/a[1]")
+    WebElement homeSlider1;
+    @FindBy(xpath = "//*[@id=\"nivo-slider\"]/a[1]")
+    WebElement nokiaHomeSlider1;
+    @FindBy(xpath = "/html/body/div[6]/div[4]/div[1]/div[4]/div[1]/ul/li[1]/a")
+    WebElement facebookFollowUs;
+    @FindBy(xpath = "/html/body/div[6]/div[4]/div[1]/div[4]/div[1]/ul/li[2]/a")
+    WebElement twitterFollowUs;
+    @FindBy(xpath = "/html/body/div[6]/div[4]/div[1]/div[4]/div[1]/ul/li[3]/a")
+    WebElement rssFollowUs;
+    @FindBy(xpath = "/html/body/div[6]/div[4]/div[1]/div[4]/div[1]/ul/li[4]/a")
+    WebElement youtubeFollowUs;
 
     public void checkHomePage(){
         registerBtn.isDisplayed();
@@ -58,5 +70,25 @@ public class HomePage {
     }
     public String checkCurrencyIsEuro4(){
         return itemEuroPrice4.getText();
+    }
+    public String clickOnHomeSlider(){
+        homeSlider1.click();
+        nokiaHomeSlider1.click();
+        return driver.getCurrentUrl();
+    }
+    public void clickFacebook(){
+        facebookFollowUs.click();
+    }
+    public String getCurrentUrl(){
+        return driver.getCurrentUrl();
+    }
+    public void clickTwitter(){
+        twitterFollowUs.click();
+    }
+    public void clickRss(){
+        rssFollowUs.click();
+    }
+    public void clickYoutube(){
+        youtubeFollowUs.click();
     }
 }
