@@ -23,7 +23,13 @@ public class HomePage {
     @FindBy(xpath = "//*[@id=\"customerCurrency\"]/option[2]")
     WebElement euroCurrency;
     @FindBy(xpath = "/html/body/div[6]/div[3]/div/div/div/div/div[4]/div[2]/div[1]/div/div[2]/div[3]/div[1]/span")
-    WebElement itemEuroPrice;
+    WebElement itemEuroPrice1;
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div/div/div/div[4]/div[2]/div[2]/div/div[2]/div[3]/div[1]/span")
+    WebElement itemEuroPrice2;
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div/div/div/div[4]/div[2]/div[3]/div/div[2]/div[3]/div[1]/span")
+    WebElement itemEuroPrice3;
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div/div/div/div[4]/div[2]/div[4]/div/div[2]/div[3]/div[1]/span")
+    WebElement itemEuroPrice4;
 
     public void checkHomePage(){
         registerBtn.isDisplayed();
@@ -41,7 +47,16 @@ public class HomePage {
         changeCurrency.click();
         euroCurrency.click();
     }
-    public String checkCurrencyIsEuro(){
-        return itemEuroPrice.getText();
+    public String checkCurrencyIsEuro1(){
+        return itemEuroPrice1.getText();
+    }
+    public String checkCurrencyIsEuro2(){
+        return itemEuroPrice2.getText();
+    }
+    public String checkCurrencyIsEuro3(){
+        return itemEuroPrice3.getText();
+    }
+    public String checkCurrencyIsEuro4(){
+        return itemEuroPrice4.getText();
     }
 }
