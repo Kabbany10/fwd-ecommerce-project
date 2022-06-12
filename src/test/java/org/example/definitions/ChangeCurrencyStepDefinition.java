@@ -5,7 +5,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pages.HomePage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 public class ChangeCurrencyStepDefinition {

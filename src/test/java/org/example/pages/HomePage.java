@@ -2,6 +2,7 @@ package org.example.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -42,6 +43,10 @@ public class HomePage {
     WebElement rssFollowUs;
     @FindBy(xpath = "/html/body/div[6]/div[4]/div[1]/div[4]/div[1]/ul/li[4]/a")
     WebElement youtubeFollowUs;
+    @FindBy(xpath = "/html/body/div[6]/div[2]/ul[1]/li[1]/a")
+    WebElement computersCategory;
+    @FindBy(xpath = "/html/body/div[6]/div[2]/ul[1]/li[1]/ul/li[1]/a")
+    WebElement desktopsSubCategory;
 
     public void checkHomePage(){
         registerBtn.isDisplayed();
@@ -91,4 +96,13 @@ public class HomePage {
     public void clickYoutube(){
         youtubeFollowUs.click();
     }
+    public void hoverOnComputers(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(computersCategory).perform();
+    }
+    public void clickOnDesktops(){
+        desktopsSubCategory.click();
+    }
+
+
 }
