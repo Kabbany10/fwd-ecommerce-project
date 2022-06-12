@@ -56,53 +56,65 @@ public class HomePage {
         registerBtn.click();
         return new CreateAccountPage(driver);
     }
+
     public SignInPage clickLogin(){
         loginBtn.click();
         return new SignInPage(driver);
     }
+
     public void changeToEuro(){
         changeCurrency.click();
         euroCurrency.click();
     }
+
     public String checkCurrencyIsEuro1(){
         return itemEuroPrice1.getText();
     }
+
     public String checkCurrencyIsEuro2(){
         return itemEuroPrice2.getText();
     }
+
     public String checkCurrencyIsEuro3(){
         return itemEuroPrice3.getText();
     }
+
     public String checkCurrencyIsEuro4(){
         return itemEuroPrice4.getText();
     }
+
     public String clickOnHomeSlider(){
         homeSlider1.click();
         nokiaHomeSlider1.click();
         return driver.getCurrentUrl();
     }
+
     public void clickFacebook(){
         facebookFollowUs.click();
     }
+
     public String getCurrentUrl(){
         return driver.getCurrentUrl();
     }
+
     public void clickTwitter(){
         twitterFollowUs.click();
     }
+
     public void clickRss(){
         rssFollowUs.click();
     }
+
     public void clickYoutube(){
         youtubeFollowUs.click();
     }
+
     public void hoverOnComputers(){
         Actions actions = new Actions(driver);
         actions.moveToElement(computersCategory).perform();
     }
+
     public void clickOnDesktops(){
         desktopsSubCategory.click();
     }
-
-
 }
