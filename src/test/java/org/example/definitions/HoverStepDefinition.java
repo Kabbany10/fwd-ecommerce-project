@@ -12,6 +12,11 @@ public class HoverStepDefinition {
     WebDriver driver = Hooks.driver;
     HomePage homePage = new HomePage(driver);
 
+    @Then("user go to homepage")
+    public void userGoToHomepage(){
+        homePage.checkHomePage();
+    }
+
     @When("user hovers on computers")
     public void userHoversOnComputers(){
         homePage.hoverOnComputers();
