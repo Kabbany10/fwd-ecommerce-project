@@ -1,10 +1,14 @@
 package org.example.pages;
 
+import org.example.definitions.Hooks;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class HomePage {
 
@@ -33,6 +37,10 @@ public class HomePage {
     WebElement itemEuroPrice4;
     @FindBy(xpath = "/html/body/div[6]/div[3]/div/div/div/div/div[1]/div[2]/a[1]")
     WebElement homeSlider1;
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div/div/div/div[1]/div[2]/a[2]")
+    WebElement homeSlider2;
+    @FindBy(xpath = "//*[@id=\"nivo-slider\"]/a[2]")
+    WebElement iphoneHomeSlider2;
     @FindBy(xpath = "//*[@id=\"nivo-slider\"]/a[1]")
     WebElement nokiaHomeSlider1;
     @FindBy(xpath = "/html/body/div[6]/div[4]/div[1]/div[4]/div[1]/ul/li[1]/a")
@@ -47,6 +55,9 @@ public class HomePage {
     WebElement computersCategory;
     @FindBy(xpath = "/html/body/div[6]/div[2]/ul[1]/li[1]/ul/li[1]/a")
     WebElement desktopsSubCategory;
+
+    @FindBy(css = "span[class=\"price actual-price\"]")
+    WebElement euroPrices;
 
     public void checkHomePage(){
         registerBtn.isDisplayed();
@@ -83,9 +94,15 @@ public class HomePage {
         return itemEuroPrice4.getText();
     }
 
-    public String clickOnHomeSlider(){
+    public String clickOnHomeSlider1(){
         homeSlider1.click();
         nokiaHomeSlider1.click();
+        return driver.getCurrentUrl();
+    }
+
+    public String clickOnHomeSlider2(){
+        homeSlider2.click();
+        iphoneHomeSlider2.click();
         return driver.getCurrentUrl();
     }
 
@@ -116,5 +133,13 @@ public class HomePage {
 
     public void clickOnDesktops(){
         desktopsSubCategory.click();
+    }
+
+    public void assertOnEuroPrices(){
+        int count = Hooks.driver.findElements(By.cssSelector("span[class=\"price actual-price\"]")).size();
+        for (int i = 0 ; i < count ; i++){
+            String text = Hooks.driver.findElements(By.cssSelector("span[class=\"price actual-price\"]")).get(i).getText();
+            Assert.assertTrue(text.contains("€"));
+        }
     }
 }

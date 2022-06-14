@@ -24,9 +24,6 @@ public class ChangeCurrencyStepDefinition {
 
     @Then("currency is changed successfully")
     public void checkCurrentCurrency(){
-        Assert.assertEquals(homePage.checkCurrencyIsEuro1() , "€1032.00");
-        Assert.assertEquals(homePage.checkCurrencyIsEuro2() , "€1548.00");
-        Assert.assertEquals(homePage.checkCurrencyIsEuro3() , "€210.70");
-        Assert.assertEquals(homePage.checkCurrencyIsEuro4() , "€21.50");
+        homePage.assertOnEuroPrices();
     }
 }
